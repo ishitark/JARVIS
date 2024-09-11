@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Consultation Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-image: url('doctor.jpeg'); /* Replace with your image path */
+background-size: cover;
+background-position: left;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+.container {
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+max-width: 600px;
+width: 100%;
+text-align: center;
+position: relative;
+}
+.doctor {
+width: 100px;
+height: 100px;
+background-size: contain;
+position: absolute;
+top: -50px;
+left: calc(50% - 50px);
+animation: wave 2s infinite;
+}
+@keyframes wave {
+0% { transform: rotate(0deg); }
+50% { transform: rotate(20deg); }
+100% { transform: rotate(0deg); }
+}
+.speech-bubble {
+background-color: #007bff;
+color: #fff;
+padding: 10px;
+border-radius: 10px;
+margin-bottom: 20px;
+position: relative;
+}
+.speech-bubble::after {
+content: '';
+position: absolute;
+top: 100%;
+left: 50%;
+margin-left: -10px;
+border-width: 10px;
+border-style: solid;
+border-color: #007bff transparent transparent transparent;
+}
+.form-group {
+margin-bottom: 20px;
+}
+.form-group label {
+display: block;
+margin-bottom: 5px;
+}
+.form-group input, .form-group textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+}
+.form-group textarea {
+resize: vertical;
+}
+.form-group button {
+width: 100%;
+padding: 10px;
+background-color: #007bff;
+border: none;
+border-radius: 5px;
+color: #fff;
+font-size: 16px;
+cursor: pointer;
+}
+.form-group button:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="doctor"></div>
+<div class="speech-bubble">Hello! Please enter your symptoms below.</div>
+<form action="/submit" method="post">
+<div class="form-group">
+<label for="name">Your Name:</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label for="symptoms">Your Symptoms:</label>
+<textarea id="symptoms" name="symptoms" rows="5" required></textarea>
+</div>
+<div class="form-group">
+<button type="submit">Submit</button>
+</div>
+</form>
+</div>
+<script>
+    window.onload = function() {
+    const speechBubble = document.querySelector('.speech-bubble');
+    speechBubble.style.display = 'none';
+    setTimeout(() => {
+    speechBubble.style.display = 'block';
+    }, 1000); // 1-second delay
+    }
+    </script
+</body>
+</html

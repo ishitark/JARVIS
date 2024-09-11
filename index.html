@@ -1,0 +1,38 @@
+4<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis 3D Avatar</title>
+    <link rel="stylesheet" href="styles21.css">
+</head>
+<body>
+    <!-- Animation Container -->    <div id="container"></div>
+    <!-- User Input Container -->
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type your command...">
+        <button id="start-btn">Jarvis को शुरू करें</button>
+        <div id="response"></div>
+        <div class="input-container">
+    </div>
+   
+</script>
+
+    </script>
+    <div class="audio-widget" id="music-widget">
+        <img src="album-cover.jpg" alt="Album Cover" class="album-cover"> <!-- Replace with a valid album cover URL -->
+        <div class="audio-controls">
+            <button id="prev-btn" onclick="playPrevious()">&#9664;&#9664;</button>
+            <button id="play-btn" onclick="togglePlay()">&#9658;</button>
+            <button id="next-btn" onclick="playNext()">&#9654;&#9654;</button>
+        </div>
+        <div class="track-info">
+            <span id="track-title">Now Playing: Futuristic Beats</span>
+        </div>
+        <audio id="music-player" preload="auto"></audio>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script21.js"></script>
+</body>
+</html>

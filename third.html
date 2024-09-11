@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yours sufi</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div class="main-content">
+        <h2>Yours sufi</h2>
+        <div id="assistant">
+            <img src="doct.gif" alt="Animated Assistant" id="assistant-image">
+        </div>
+        <p id="assistant-response"></p>
+        <form id="assistant-form" style="display: none;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="symptoms">Symptoms:</label>
+            <textarea id="symptoms" name="symptoms" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <button id="start-voice-interaction">Start Interaction</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
