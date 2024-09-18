@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मज़ेदार AI सहायक</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            margin: 0;
+            padding: 0; /* Remove default padding */
+        }
+
+        #conversation {
+            position: fixed; /* Fixed position to keep it stationary */
+            bottom: 0; /* Align it at the bottom of the screen */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            width: 90%; /* Adjust the width as needed */
+            max-width: 600px; /* Limit the maximum width */
+            height: 150px; /* Set a fixed height */
+            overflow-y: auto; /* Enable scrolling within the conversation area */
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            z-index: 1000; /* Ensure it is above other content */
+        }
+
+        #conversation p {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: background 0.3s ease;
+            font-size: 16px;
+        }
+
+        #conversation p.user {
+            background: #4CAF50;
+            color: #fff;
+            text-align: right;
+        }
+
+        #conversation p.assistant {
+            background: #2196F3;
+            color: #fff;
+            text-align: left;
+        }
+
+        #start-listening {
+            background-color: #00bcd4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: fixed; /* Fixed position to stay at the bottom */
+            bottom: 10px; /* Space from the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            transition: background-color 0.3s ease;
+            z-index: 1000; /* Ensure it is above other content */
+        }
+
+        #start-listening:hover {
+            background-color: #0097a7;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        #youtube-player {
+            display: block;
+            margin-top: 20px;
+            width: 200%; /* Increase width to make it longer */
+            height: 400px; /* Increase height for better aspect ratio */
+            max-width: 800px; /* Optional: set a maximum width */
+            border: none; /* Remove border for cleaner look */
+        }
+
+        #container {
+            width: 100%;
+            height: 500px;
+            margin: 20px 0;
+        }
+
+        .audio-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .album-cover {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .audio-controls {
+            margin-top: 10px;
+        }
+
+        .track-info {
+            margin-top: 10px;
+        }
+
+        .audio-controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .audio-controls button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Conversation Container -->
+    <div id="conversation">
+        <p class="user">Hello, how are you?</p>
+        <p class="assistant">I'm great, thank you! How can I assist you today?</p>
+        <!-- Add more conversation messages here -->
+    </div>
+
+    <button id="start-listening">सुनना शुरू करें</button>
+
+    <!-- Music Controls -->
+    <div id="music-controls">
+        <button id="play" class="button">Play</button>
+        <button id="pause" class="button">Pause</button>
+        <button id="next" class="button">Next</button>
+    </div>
+
+    <!-- YouTube Player -->
+    <iframe
+        id="youtube-player"
+        title="YouTube Video Player"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
+
+    <!-- 3D Animation Container -->
+    <div id="container"></div>
+
+    <!-- Audio Widget -->
+    <div class="audio-widget" id="music-widget">
+        <img src="album-cover.jpg" alt="Album Cover" class="album-cover">
+        <div class="audio-controls">
+            <button id="prev-btn" onclick="playPrevious()">&#9664;&#9664;</button>
+            <button id="play-btn" onclick="togglePlay()">&#9658;</button>
+            <button id="next-btn" onclick="playNext()">&#9654;&#9654;</button>
+        </div>
+        <div class="track-info">
+            <span id="track-title">Now Playing: Futuristic Beats</span>
+        </div>
+        <audio id="music-player" preload="auto"></audio>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script21.js"></script>
+</body>
+</html>
